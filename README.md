@@ -18,3 +18,13 @@ helm repo update
 helm install --name my-kafka --namespace kafka incubator/kafka  
 
 kubectl get po -n kafka 
+
+
+
+AWS_ACCOUNT_ID
+271153858532
+
+KUBE_URL
+https://1909A15692175E5B4C379C70779A535F.sk1.ap-northeast-2.eks.amazonaws.com
+
+KUBE_TOKEN
