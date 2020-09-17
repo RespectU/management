@@ -28,3 +28,26 @@ KUBE_URL
 https://1909A15692175E5B4C379C70779A535F.sk1.ap-northeast-2.eks.amazonaws.com
 
 KUBE_TOKEN
+
+
+
+
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: dr-driver
+  namespace: istio-cb-ns
+spec:
+  host: admin02-driver
+  trafficPolicy:
+    connectionPool:
+      http:
+        http1MaxPendingRequests: 3
+        maxRequestsPerConnection: 3
+    outlierDetection:
+      interval: 1s
+      consecutiveErrors: 1
+      baseEjectionTime: 1m
+      maxEjectionPercent: 100
+EOF
